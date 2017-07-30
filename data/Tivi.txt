@@ -1,0 +1,25 @@
+LG
+4
+32 inche
+plasma
+HD 1366x768-1280x720
+Panasonic
+4
+32 inche
+led
+Full HD
+Samsung
+4
+37-39 inche
+led+smart
+Full HD 1920x1080
+Sony
+4
+46-47 inche
+4K+smart
+4K 3840x2160
+Toshiba
+4
+48-49 inche
+4K+smart+3D
+4K 3840x2160
