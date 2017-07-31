@@ -73,4 +73,3 @@ int search_vector_element(word_info** word_list, char* word_name, int left, int 
     else
         return search_vector_element(word_list, word_name, left, middle-1);
 }
-

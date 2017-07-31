@@ -1,9 +1,12 @@
 #ifndef LOAD_CATEGORY_H_INCLUDED
 #define LOAD_CATEGORY_H_INCLUDED
 
-#define CATEGORY_NAME_SIZE 128
+#define CATEGORY_NAME_SIZE 64
+#include <stddef.h>
 #include "bk_vector.h"
+#include "load_category.h"
 #include "load_word.h"
+
 typedef struct type_node {
     char* type_name;
     struct type_node* next;
@@ -24,4 +27,7 @@ int split_category(category_node** category_head, char* buffer);
 int split_type(char* type_buffer, type_node** p_type_head);
 void print_category(category_node* category_head);
 void print_type(type_node* type_head);
+void free_category(category_node* category_head);
+void free_type(type_node* type_head);
+category_node* has_category(category_node* category_head, char* category_name);
 #endif // LOAD_CATEGORY_H_INCLUDED

@@ -31,10 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="bk_string.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="bk_string.h" />
 		<Unit filename="bk_vector.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="bk_vector.h" />
+		<Unit filename="file_process.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="file_process.h" />
 		<Unit filename="load_category.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -46,6 +54,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="validate_input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="validate_input.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -1,6 +1,7 @@
 #ifndef BK_VECTOR_H_INCLUDED
 #define BK_VECTOR_H_INCLUDED
 
+/* nut dau rong */
 typedef struct data_node {
     char* data;
     struct data_node* next;

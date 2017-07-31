@@ -7,3 +7,6 @@ Viet tat;nam thanh lap;loai dai hoc;hieu truong;dia chi;thong tin
 5
 10000
 Data test
+6
+100
+Du lieu

@@ -4,10 +4,8 @@
 #include "load_category.h"
 
 int load_file_category(char** buffer, char* file_path){
-    //Vector vector[12];
     FILE* file;
     long length, alloced, byte_read;
-    //long alloced
     file = fopen(file_path,"r");
     if (file == NULL){
         printf("Khong mo duoc file");
@@ -16,11 +14,11 @@ int load_file_category(char** buffer, char* file_path){
     *buffer = calloc(1024, sizeof(char));
     alloced = 1024;
     if (*buffer){
-        while(byte_read = fread(*buffer, 1, 1024, file)){
+        while((byte_read = fread(*buffer, 1, 1024, file))){
             length += byte_read;
             if (length >= alloced){
                 char* new_buff = realloc(buffer, alloced*2);
-                buffer = new_buff;
+                *buffer = new_buff;
                 alloced *= 2;
             }
         }
@@ -123,4 +121,48 @@ void print_type(type_node* type_head){
         type_curr = type_curr->next;
     }
     printf("\n");
+}
+
+void free_category(category_node* category_head){
+    category_node* category_curr;
+    category_node* category_prev;
+    if (category_head == NULL)
+        return;
+    category_curr = category_head;
+    while(category_curr){
+        category_prev = category_curr;
+        category_curr = category_curr->next;
+        free(category_prev->category_id);
+        free(category_prev->category_name);
+        free_type(category_prev->type_head);
+    }
+}
+
+void free_type(type_node* type_head){
+    type_node* type_curr;
+    type_node* type_prev;
+    if (type_head == NULL)
+        return;
+    type_curr = type_head;
+    while(type_curr){
+        type_prev = type_curr;
+        type_curr = type_curr->next;
+        free(type_prev->type_name);
+        free(type_prev);
+    }
+    //free(type_curr)
+}
+
+category_node* has_category(category_node* category_head, char* category_name){
+    category_node* category_curr;
+    //int check;
+    if (category_head == NULL)
+        return NULL;
+    category_curr = category_head->next;
+    while(category_curr){
+        if (strcmp(category_name, category_curr->category_name) == 0)
+            return category_curr;
+        category_curr = category_curr->next;
+    }
+    return NULL;
 }
