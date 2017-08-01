@@ -5,7 +5,7 @@
 
 /* Kiem tra xem nguoi dung nhap so */
 char check_main_program_input(char* buffer){
-    for(int i = 0; i < strlen(buffer); i++){
+    for(unsigned int i = 0; i < strlen(buffer); i++){
         if(isdigit(buffer[i])){
             clear_stdin();
             return buffer[i];

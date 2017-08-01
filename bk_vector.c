@@ -63,7 +63,7 @@ int search_vector_element(word_info** word_list, char* word_name, int left, int 
 
     if (left > right)
         return -1;
-    /* Cho ve chuoi chu thuong */
+    /* convert ve chu HOA -> thuong */
     to_lower_string(word_name, lower_word_name);
     to_lower_string(word_list[middle]->word_name, lower_middle_word_name);
     if (strcmp(lower_middle_word_name, lower_word_name) == 0)
@@ -72,4 +72,11 @@ int search_vector_element(word_info** word_list, char* word_name, int left, int 
         return search_vector_element(word_list, word_name, middle+1, right);
     else
         return search_vector_element(word_list, word_name, left, middle-1);
+}
+
+void free_vector(Vector* vector){
+    if (vector == NULL)
+        return;
+    free(vector->word_list);
+    free(vector);
 }

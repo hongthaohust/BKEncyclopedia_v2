@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "load_word.h"
-//#include "file_process.h"
+#include "file_process.h"
 #include "bk_vector.h"
-
+#include "validate_input.h"
 int init_new_word(word_info** p_new_word){
     word_info* new_word ;
     new_word = calloc(1, sizeof(word_info));
@@ -146,7 +146,6 @@ void print_word_data(data_node* p_data_head){
 int add_word_to_file(char* file_name, word_info* new_word){
     char file_path[128] = {0};
     data_node* data_curr_node;
-    int index;
     FILE* file;
 
     if ( new_word == NULL)
@@ -213,6 +212,7 @@ int edit_word_in_db(Vector* vector, word_info* old_word, word_info* new_word, in
     old_word->category_id = new_word->category_id;
     return 1;
 }
+
 int edit_word_in_file(char* file_name){
+
 }
-//int type_

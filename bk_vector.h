@@ -25,7 +25,7 @@ int add_vector_element(Vector* vector, word_info*);
 int search_vector_element(word_info** word_list, char* word_name, int left, int right);
 int insert_vector_element(Vector* vector, word_info* new_word, int index);
 int resize_vector(Vector* vector);
-int free_vector(Vector* vector);
+void free_vector(Vector* vector);
 int free_word_list(word_info* word);
 int init_vector(Vector** vector, int size);
 
