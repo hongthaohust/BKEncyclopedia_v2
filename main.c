@@ -1,21 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "bk_vector.h"
-#include "load_category.h"
-#include "load_word.h"
-#include "validate_input.h"
-#include "file_process.h"
+#include "main.h"
 
-int load_word(category_node* category_head, Vector* vector, char** p_word_buffer);
-int menu();
-int search_word(Vector*);
-int add_word_func(Vector* vector, category_node* category_head);
-int edit_word(Vector* vector);
-int print_amount_of_category(category_node* category_head);
-void print_category_infor(category_node* category_head);
-int add_category(category_node* category_head);
-int delete_category(category_node* category_head);
+
+
 int main()
 {
     Vector* vector = NULL;
@@ -34,6 +23,8 @@ int main()
     split_category(&category_head, category_buffer);
 //    print_all_category(category_head);
     load_word(category_head, vector, &word_buffer);
+    sort_vector_element(vector);
+    //print_only_word(vector);
     printf("Load done\n");
     while(1){
         int choice = menu();
@@ -43,36 +34,38 @@ int main()
             add_word_func(vector, category_head);
         else if (choice == 3)
             edit_word(vector);
+        else if (choice == 4)
+            remove_word(vector, category_head);
         else if (choice == 5)
-            print_amount_of_category(category_head);
+            print_word_category(vector, category_head);
         else if (choice == 6){
             add_category(category_head);
         }
-
+        else if (choice == 7){
+            edit_category(category_head);
+        }
         else if (choice == 8){
             /* Xoa the loai sau do load lai */
-            if (delete_category(category_head) == -1)
+            if (delete_category(vector, category_head) == -1)
                 continue;
-            free(word_buffer);
-            free(vector);
-            init_vector(&vector, 1024);
-            load_word(category_head, vector, &word_buffer);
         }
         else if (choice == 9)
             print_category_infor(category_head);
         else if (choice == 10)
-            break;
-        else if (choice == 11)
             print_all_category(category_head);
+        else if (choice == 11)
+            break;
+        else if (choice == 12)
+            print_only_word(vector);
+        else if (choice == 13)
+            sort_vector_element_by_id(vector);
+
     }
-    //load_file(&word_buffer, "data/Country.txt");
-    //split_word_infor(vector, word_buffer, 6);
-    //print_vector(vector);
     free_category(category_head);
-    //free(category_buffer);
+    free(category_buffer);
     free(word_buffer);
-    //getchar();
-    //printf("%s",vector[2].data);
+    getchar();
+    return 1;
 }
 
 int search_word(Vector* vector){
@@ -105,8 +98,10 @@ int menu(){
         printf("[7]Sua the loai\n");
         printf("[8]Xoa the loai\n");
         printf("[9]In thong thong tin 1 the loai\n");
-        printf("[10]Thoat chuong trinh\n");
-        printf("[11]Hien thi tat ca the loai\n");
+        printf("[10]Hien thi tat ca the loai\n");
+        printf("[11]Thoat chuong trinh\n");
+        printf("[12]In tat ca cac tu\n");
+        printf("[13]Sort theo ID\n");
         printf("Moi chon: ");
         fflush(stdout);
         byte_input = scanf("%d%c", &user_choice, &new_line_char);
@@ -116,7 +111,7 @@ int menu(){
             continue;
         }
         /* Xoa ki tu \n */
-        if (user_choice > 0 && user_choice < 12)
+        if (user_choice > 0 && user_choice < 15)
             break;
     }
     return user_choice;
@@ -124,7 +119,7 @@ int menu(){
 
 int load_word(category_node* category_head, Vector* vector, char** p_word_buffer){
     char file_path[128] = {0};
-    int amout_of_word;
+    long amout_of_word;
     int error;
     category_node* category_curr = category_head->next;
     while(category_curr){
@@ -136,7 +131,7 @@ int load_word(category_node* category_head, Vector* vector, char** p_word_buffer
             continue;
         }
         amout_of_word = split_word_infor(vector, *p_word_buffer, category_curr->amount_of_type + 2);
-        category_curr->amount_of_word = amout_of_word/(category_curr->amount_of_type + 2) + 1;
+        category_curr->amount_of_word = amout_of_word/(category_curr->amount_of_type + 2);
         category_curr = category_curr->next;
         memset(file_path,0, strlen(file_path));
     }
@@ -159,8 +154,11 @@ int add_word_func(Vector* vector, category_node* category_head){
     safe_input(category_name);
     //getchar();
     finded_category = has_category(category_head, category_name);
-    if ( finded_category == NULL)
+    if ( finded_category == NULL){
+        printf("Khong tim thay ten the loai\n");
         return -1;
+    }
+
 
     type_curr = finded_category->type_head;
     amout_of_type = finded_category->amount_of_type;
@@ -185,8 +183,6 @@ int add_word_func(Vector* vector, category_node* category_head){
             return -1;
         printf("%s: ", type_curr->type_name);
         safe_input(new_data_node->data);
-//        gets(new_data_node->data);
-//        strtok(new_data_node->data, "\n");
         new_data_node->next = NULL;
         new_data_curr->next = new_data_node;
         new_data_curr = new_data_curr->next;
@@ -197,6 +193,7 @@ int add_word_func(Vector* vector, category_node* category_head){
     index = get_new_word_index(vector, new_word);
     insert_vector_element(vector, new_word, index);
     add_word_to_file(category_name, new_word);
+    finded_category->amount_of_word++;
     return 1;
     //add_word(vector, category_name, )
 }
@@ -207,7 +204,7 @@ int edit_word(Vector* vector){
     word_info* old_word;
     word_info** word_list;
     char word_name[WORD_NAME_SIZE];
-    int index;
+    long index;
     int error;
 
     printf("--Nhap ten tu muon sua: ");
@@ -228,7 +225,25 @@ int edit_word(Vector* vector){
     return 1;
 }
 
-int print_amount_of_category(category_node* category_head){
+int remove_word(Vector* vector, category_node* category_head){
+    long word_index;
+    char word_name[WORD_NAME_SIZE];
+    char category_id[CATEGORY_ID_SIZE] = {0};
+    printf("--Nhap vao ten tu: ");
+    safe_input(word_name);
+    word_index = search_vector_element(vector->word_list, word_name, 0, vector->used - 1);
+    if (word_index == -1){
+        printf("Tu nay khong ton tai\n");
+        return -1;
+    }
+    strcpy(category_id, vector->word_list[word_index]->category_id);
+    remove_vector_element(vector, word_index);
+    decrease_amout_of_word(category_head, category_id, 1);
+    printf("Xoa tu %s thanh cong\n", word_name);
+    return 1;
+}
+
+int print_word_category(Vector* vector, category_node* category_head){
     category_node* category = NULL;
     char category_name[CATEGORY_NAME_SIZE];
     printf("--Nhap ten the loai: ");
@@ -238,14 +253,16 @@ int print_amount_of_category(category_node* category_head){
         printf("Khong thay the loai nay\n");
         return -1;
     }
-    printf("--So tu cua the loai %s la %d", category->category_name, category->amount_of_word);
+    printf("--So tu cua the loai %s la %d\n", category->category_name, category->amount_of_word);
+    print_wordname_in_category(vector, category->category_id);
     return 1;
 }
 
 int add_category(category_node* category_head){
     int error;
     int amount_of_type;
-    char category_name[CATEGORY_NAME_SIZE];
+    char category_name[CATEGORY_NAME_SIZE] = {0};
+    char category_id[CATEGORY_ID_SIZE] = {0};
     category_node* new_category;
     type_node* type_head;
     type_node* type_curr;
@@ -261,7 +278,12 @@ int add_category(category_node* category_head){
     }
     strcpy(new_category->category_name, category_name);
     printf("--Nhap ma the loai: ");
-    safe_input(new_category->category_id);
+    safe_input(category_id);
+    if (is_category_id_exist(category_head, new_category->category_id)){
+        printf("Ma the loai da ton tai\n");
+        return -1;
+    }
+    strcpy(new_category->category_id, category_id);
     printf("--Nhap so truong: ");
     scanf("%d",&amount_of_type);
     clear_stdin();
@@ -276,7 +298,7 @@ int add_category(category_node* category_head){
         free_one_type(type_head);
         free_category(new_category);
     }
-    printf("Nhap vao truong 1: ");
+    printf("--Nhap vao truong 1: ");
     safe_input(type_head->type_name);
     type_curr = type_head;
     type_curr->next = NULL;
@@ -293,9 +315,96 @@ int add_category(category_node* category_head){
     }
     new_category->type_head = type_head;
     add_category_to_db(category_head, new_category);
-    add_category_to_file( new_category);
+    write_category_to_file(category_head);
     return 1;
 }
+
+int edit_category(category_node* category_head){
+    category_node* finded_category;
+    category_node* new_category;
+    type_node* new_type_head;
+    type_node* new_curr_type;
+    type_node* new_tmp_type;
+    type_node* curr_type;
+    char category_name[CATEGORY_NAME_SIZE] = {0};
+    char new_category_name[CATEGORY_NAME_SIZE] = {0};
+    int error;
+    printf("--Nhap vao ten the loai can sua: ");
+    safe_input(category_name);
+    finded_category = has_category(category_head, category_name);
+    if (finded_category == NULL){
+        printf("Ten the loai nay khong ton tai\n");
+        return -1;
+    }
+    error = init_category(&new_category);
+    if (error == -1)
+        return -1;
+    error = init_type(&new_type_head);
+    if (error == -1)
+        return -1;
+    curr_type = finded_category->type_head;
+    printf("+ %s -> ", finded_category->category_name);
+    safe_input(new_category_name);
+    /* Kiem tra ten da ton tai chua va neu co ton tai khac voi ten muon sua thi break*/
+    if (has_category(category_head, new_category_name)){
+        if (strcmp(new_category_name, finded_category->category_name)){
+            printf("Ten nay da ton tai\n");
+            return -1;
+        }
+    }
+    strcpy(new_category->category_name, category_name);
+    new_curr_type = new_type_head;
+    printf("+ %s -> ", curr_type->type_name);
+    safe_input(new_curr_type->type_name);
+    while((curr_type = curr_type->next)){
+        error = init_type(&new_tmp_type);
+        if(error == -1)
+            return -1;
+        printf("+ %s -> ", curr_type->type_name);
+        safe_input(new_tmp_type->type_name);
+        new_tmp_type->next = NULL;
+        new_curr_type->next = new_tmp_type;
+        new_curr_type = new_curr_type->next;
+    }
+    new_category->type_head = new_type_head;
+    edit_category_in_db(finded_category, new_category);
+    return 1;
+}
+
+int delete_category(Vector* vector, category_node* category_head){
+    category_node* finded_category = NULL;
+    char category_name[CATEGORY_NAME_SIZE];
+    char category_id[CATEGORY_ID_SIZE];
+    //char* category_id;
+    int error;
+
+    if (category_head->next == NULL){
+        printf("Khong con the loai nao de xoa\n");
+        return -1;
+    }
+    printf("--Nhap ten the loai can xoa: ");
+    safe_input(category_name);
+    finded_category = has_category(category_head, category_name);
+    if (finded_category == NULL){
+        printf("Khong tim thay ten the loai\n");
+        return -1;
+    }
+    strcpy(category_id, finded_category->category_id);
+    error = delete_category_in_db(category_head, category_name);
+    error = write_category_to_file(category_head);
+    if (error == -1){
+        printf("Khong xoa duoc trong file\n");
+        return -1;
+    }
+    /* Sap xep lai theo id roi xoa */
+    sort_vector_element_by_id(vector);
+    remove_word_in_category(vector,category_id);
+    /* Sau do sap xep lai theo ten */
+    sort_vector_element(vector);
+    printf("Xoa the loai thanh cong\n");
+    return 1;
+}
+
 
 void print_category_infor(category_node* category_head){
     category_node* finded_category = NULL;
@@ -309,28 +418,4 @@ void print_category_infor(category_node* category_head){
         return;
     }
     print_one_category(finded_category);
-}
-
-int delete_category(category_node* category_head){
-    //category_node* finded_category = NULL;
-    char category_name[CATEGORY_NAME_SIZE];
-    int error;
-    if (category_head->next == NULL){
-        printf("Khong con the loai nao de xoa\n");
-        return -1;
-    }
-    printf("--Nhap ten the loai can xoa: ");
-    safe_input(category_name);
-    error = delete_category_in_db(category_head, category_name);
-    if (error == -1){
-        printf("Khong tim thay ten the loai\n");
-        return -1;
-    }
-    error = write_category_to_file(category_head);
-    if (error == -1){
-        printf("Khong xoa duoc trong file\n");
-        return -1;
-    }
-    printf("Xoa the loai thanh cong\n");
-    return 1;
 }

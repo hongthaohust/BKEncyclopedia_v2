@@ -1,0 +1,75 @@
+Toyota
+4
+Akio Toyoda
+San xuat Xe hoi
+Toyota duoc thanh lap vao nam 1933 tai tinh Tokyo, hien nay cong ty dang rat phat trien voi nhieu mau ma oto khac nhau...
+Honda
+4
+Soichiro Honda 
+San xuat Xe Hoi, xe may
+Honda la hang dong co lon nhat nhat ban, duoc thanh lap vao nam 1984 tai Tokyo Nhat Ban, doanh so san xuat la 14 trieu xe moi nam...
+FPT
+4
+Truong Gia Binh
+Kinh doanh thiet bi dien tu, san xuat phan mem. 
+FPT la ten viet tat cua Con ty Co Phan FPT, la mot tap doan kinh te voi linh vuc kinh doanh CNTT, la doanh nghiep lon thu 14 tai Viet Nam...
+BKAV
+4
+Nguyen Tu Quang
+Cong nghe phan mem, Bao mat - an toan thong tin 
+BKAV la cong ty duoc biet den voi kha nang bao mat he thong, an toan thong tin voi cac ky su chat luong cao, ngoai ra con san xuat smartphone voi ten goi Bphone...
+SamSung
+4
+Lee Byung-Chul
+Cong nghe thong tin, dien tu vien thong 
+Sam sung la tap doan cong nghe lon nhat Han Quoc, duoc thanh lap vao nam 1938 tai Seul Han Quoc...
+Viettel
+4
+Hoang Son
+Cong nghe thong tin, Dien tu vien thong
+Tap doan vien thong quan doi Viettel la doanh nghiep kinh te quoc phong 100% von nha nuoc, chiu trach nhiem ke thua cac quyen, nghia vu phap ly hop phap cua Tong cong ty vien thong quan doi...
+BMW
+4
+Franz Josef Popp
+Xe hoi
+Tien than cua BMW la Rapp Motorenwerke, thang 4 nam 1917 doi ten thanh BMW GmBH, la tap doan xe hoi lon tren the gioi
+VinGroup
+4
+Pham Nhat Vuong
+Kinh doanh Bat Dong San
+Tap doan VinGroup la tap doan kinh te lon nhat Viet Nam voi nguoi dung dau co tong tai san len den hon 2 ty Dola My, chuyen kinh doanh bat dong san nha dat...
+FLC
+4
+Trinh Van Quyet
+Kinh doanh bat dong san
+FLC la tap doan kinh te dai dien cho Thanh Hoa mang kinh doang chinh cua cong ty la Bat dong san nha dat...
+Google
+4
+Sundar Pichai
+Cong nghe thong tin
+Duoc biet den voi cong cu tim kiem thong minh nhat the gioi, Google la mot trong nhung cong ty chuyen ve Cong nghe hang dau the gioi...
+Apple
+4
+BillGate
+Cong Nghe Thong Tin
+La tap doan lon nhat the gioi, duoc sang lap boi ty phu the gioi BillGate, Apple dang la cong ty gay anh huong nhat toi nen kinh te the gioi,...
+AFC
+4
+Ken Tucky
+Ga Ran
+Doanh nhiep so huu chuoi nha hang an vat lon nhat the gioi voi mon ga ran noi tieng, hien nay da co mat tren hon 40 quoc gia tren the gioi
+Bentley
+4
+Richard Lich
+Xe Hoi
+Mot trong nhung hang xe sieu sang tren the gioi, Bentley da co mat tai Viet Nam voi gia len den hang chuc ty dong cho moi chiec xe,...
+Bentayga
+4
+Luis Vanga
+San xuat Xe Hoi
+Bentayga la hang dong co lon nhat nhat ban, duoc thanh lap vao nam 1984 tai Tokyo Nhat Ban, doanh so san xuat la 14 trieu xe moi nam...
+Amazon
+4
+Warren Buffot
+Ban Hang Online
+Mot trong nhung trang web ban hang noi tieng nhat the gioi, doanh thu da giup cho Tong giam doc cong ty nay vuot mat BillGate trong cuoc dua ty phu the gioi,...

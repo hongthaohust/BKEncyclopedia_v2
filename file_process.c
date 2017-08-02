@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 #include "file_process.h"
 char* prefix_file_path = "data/";
 char* surfix_file_path = ".txt";
@@ -22,4 +23,12 @@ FILE* get_category_file_pointer(char* permission){
     category_file = fopen("data/theloai",permission);
         return category_file;
     return NULL;
+}
+
+int is_file_exist(char* fname){
+    if( access( fname, F_OK ) != -1 ) {
+        return 1;
+    } else {
+        return 0;
+    }
 }

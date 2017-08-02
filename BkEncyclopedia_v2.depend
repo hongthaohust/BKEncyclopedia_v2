@@ -1,41 +1,38 @@
 # depslib dependency file v1.0
-1501576752 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\main.c
+1501669331 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	"bk_vector.h"
-	"load_category.h"
-	"load_word.h"
-	"validate_input.h"
-	"file_process.h"
+	"main.h"
 
-1501556478 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\bk_vector.h
-
-1501568425 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\bk_vector.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"bk_vector.h"
+1501666601 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\bk_vector.h
 	"bk_string.h"
+	"bk_header.h"
 
-1501576530 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\load_category.c
+1501669244 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\bk_vector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"bk_vector.h"
+
+1501668646 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\load_category.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	"load_category.h"
 	"file_process.h"
 
-1501577204 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\load_category.h
+1501658597 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\load_category.h
 	<stddef.h>
 	"bk_vector.h"
 	"load_category.h"
 	"load_word.h"
 	"bk_header.h"
 
-1501495750 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\load_word.h
+1501667615 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\load_word.h
 	"bk_vector.h"
 
-1501568384 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\load_word.c
+1501669249 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\load_word.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -43,6 +40,7 @@
 	"file_process.h"
 	"bk_vector.h"
 	"validate_input.h"
+	"bk_header.h"
 
 1501409537 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\bk_string.c
 	<stdio.h>
@@ -59,15 +57,23 @@
 
 1501522325 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\validate_input.h
 
-1501577439 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\file_process.c
+1501608643 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\file_process.c
 	<string.h>
 	<stdio.h>
+	<unistd.h>
 	"file_process.h"
 
-1501577340 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\file_process.h
+1501608629 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\file_process.h
 
-1501577216 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\bk_header.h
+1501603629 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\bk_header.h
 
 1501467427 source:c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\bk_header.c
 	"bk_header.h"
+
+1501668257 c:\users\tuannguyen\documents\code block prj\bkencyclopedia_v2\main.h
+	"bk_vector.h"
+	"load_category.h"
+	"load_word.h"
+	"validate_input.h"
+	"file_process.h"
 

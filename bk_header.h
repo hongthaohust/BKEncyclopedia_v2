@@ -3,5 +3,8 @@
 
 #define CATEGORY_NAME_SIZE 64
 #define TYPE_NAME_SIZE 64
-
+#define CATEGORY_ID_SIZE 16
+#define WORD_NAME_SIZE 64
+#define DATA_SIZE 64
+//typedef long long;
 #endif // BK_HEADER_H_INCLUDED

@@ -1,0 +1,100 @@
+Ca
+1
+Hon 31.900 loai
+Duoi nuoc
+Ca la loai dong vat co xuong song, phan lon la loai ngoai nhiet(mau lanh), co mang. Thuc an chinh chu yeu la tao va rong bien, mot so loai an thit
+Ho
+1
+Chi co 9 loai
+Tren can
+Ho, con goi la cop, la mot loai dong vat co vu thuoc ho Meo va la mot trong 4 loai meo lon thuoc chi Panthera. Chung la loai dong vat chuyen san bat moi
+Chim
+1
+Hon 10.000 loai
+Tren cac canh cay cao
+Chim la tap hop cac loai dong vat co xuong song, mau nong, di dung bang 2 chan, co mo, de trung, co long vu va biet bay.
+Su Tu
+1
+Chi co 14 loai
+Tren can
+Su tu la loai dong vat co vu thuoc chi Bao ho Meo, su tu co bom, con to nhat co the nang toi 250kg. Chung song tap trung chu yeu tai vung Chau Phi ha Saharan.
+Ran
+1
+Tren 20 ho ran voi 3.400 den 3.500 loai
+Tren can, duoi nuoc, tren cay
+Ran la loai bo sat an thit, khong xuong song, chung khong co chan va than co hinh tron dai, thuoc phan bo Serpentes.
+Bo
+1
+Chi co 7 loai
+Tren can
+Bo la loai dong vat co vu bao gom bo hoang da va bo thuan hoa. Chi Bo hien nay co nhieu nhat la 4 phan chi: Bos, Bibos, Novibos, Poephagus
+Cho
+1
+Co 37 loai cho
+Tren can
+Cho la loa dong vat dau tien duoc con nguoi thuan hoa cach day gan 15000 nam vao cuoi Ky Bang Ha, to tien cua loai nay la cho soi, chung duoc su dung de giu nha hoac lam thu cuoi
+Lon
+1
+Co 21 loai, trong do 15 loai lon rung va 6 loai lon nuoi
+Tren can
+Lon la loai dong vat co vu, duoc con nguoi su dung lam thuc pham chinh hang ngay,chung chi an rau co thuc vat
+Ga
+1
+Co hon 20 loai
+Tren can
+Ga hay ga nha(ke) la mot loai chim da duoc con nguoi thuan hoa cach day hang nghin nam, con nguoi thuong su dung trung ga, thit ga lam thuc pham, long ga lam dung cu rieng
+Ngua
+1
+Co 4 loai
+Tren can 
+Ngua la loai dong vat co vu trong ho Equidae, bo Perissodactyla. Loai nay co 4 chan, co toc do chay rat nhanh
+Lua
+1
+Co 20 loai
+Tren can 
+Ngua la loai dong vat co vu trong ho Lathidue, bo Lathium. Loai nay co 4 chan, toc do cham hon ngua, thuong duoc su dung de van chuyen do dac
+Meo
+1
+Co 12 loai
+Tren can 
+Meo la loai duy nhat trong ho Meo duoc con nguoi thuan hoa, meo hoang thuong san bat chuot lam thuc an, chung rat nhanh nhen, co mong vuot sac nhon
+Te Giac
+1
+Co 4 loai
+Tren can 
+Te Giac hien nay dang la loai dong vat duoc dua vao sach do, sung cua chung rat quy, chinh vi vay day la muc tieu cua cac ke buon lau sung te giac
+Khi
+1
+Co hon 200 loai
+Tren can
+Khi la loai dong vat duy nhat co cau truc cau tao giong voi con nguoi, chung co kha nang di bang 2 chan, leo treo cay va co bo nao tien hoa
+Vit
+1
+Co hon 50 loai
+Tren can
+Vit la con vat duoc con nguoi thuan hoa, chung co the boi, tu timm kiem thuc an, con nguoi nuoi vit de lay thit lam thuc pham
+De
+1
+Co hon 20 loai de
+Tren can
+De la dong cat co xuong song, 4 chan, co sung, duoc con nguoi thuan hoa, con nguoi thuong lay thit, long, sua de lam nhu yeu pham hang ngay
+Vet
+1
+Co hon 100 loai
+Tren can
+Vet la mot loai thuoc ho chim, tuy nhien chung co kha nang bat truoc mot am thanh nao do, mau long vet thuong sac so voi nhieu mau khac nhau
+Trau
+1
+Co 3 loai
+Tren can
+Trau co hinh dang ben ngoai giong bo, tuy nhien chung thuong co mau den, trau thuong dung de cay, de tham gia vao cac cuoc troi trau hoi lang
+Bao
+1
+Chi co 9 loai
+Tren can
+Bao la mot loai dong vat co vu thuoc ho Meo va la mot trong 4 loai meo lon thuoc chi Panthera. Chung la loai dong vat chuyen san bat moi, bao nho hon Ho
+Than lan
+1
+Co hon 300 loai
+Tren can
+Than lan la mot loai bo sat co cap vuot sac nhon, hien nay co rat nhieu loai than lan ngay ca xung quanh chung ta, chung thuong an con trung

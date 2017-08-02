@@ -16,8 +16,8 @@ typedef struct type_node {
 typedef struct category_node {
     char* category_id;
     char* category_name;
-    size_t amount_of_type;  // So cac truong
-    size_t amount_of_word;  // So cac  tu
+    long amount_of_type;  // So cac truong
+    long amount_of_word;  // So cac  tu
     type_node* type_head;
     struct category_node* next;
 } category_node;
@@ -39,4 +39,7 @@ int add_category_to_db(category_node* category_head, category_node* new_category
 int add_category_to_file(category_node* new_category_node);
 int delete_category_in_db(category_node* category_head, char* category_name);
 int write_category_to_file(category_node* category_head);
+int is_category_id_exist(category_node* category_head, char* category_id);
+int decrease_amout_of_word(category_node* category_head, char* category_id, int num);
+int edit_category_in_db(category_node* old_category, category_node* new_category);
 #endif // LOAD_CATEGORY_H_INCLUDED

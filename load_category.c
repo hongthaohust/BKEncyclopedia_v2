@@ -4,6 +4,7 @@
 #include "load_category.h"
 #include "file_process.h"
 char* category_file_path = "data/theloai.txt";
+
 int init_category(category_node** p_new_category){
     category_node* new_category;
     new_category = calloc(1, sizeof(category_node));
@@ -54,7 +55,7 @@ int load_file_category(char** p_buffer){
 
 int split_category(category_node** category_head, char* buffer){
     char* p_ch;
-    int count = 0;
+    long count = 0;
     category_node *tmp_new_category, *last_category;
     (*category_head) = calloc(1, sizeof(category_node));
     last_category = *category_head;
@@ -132,7 +133,7 @@ void print_all_category(category_node* category_head){
     while(category_curr){
         printf("Ten: %s\n", category_curr->category_name);
         printf("id: %s\n", category_curr->category_id);
-        printf("amount of type: %d\n", category_curr->amount_of_type);
+        printf("So tu: %d\n", category_curr->amount_of_type);
         print_type(category_curr->type_head);
         category_curr = category_curr->next;
     }
@@ -146,6 +147,7 @@ void print_one_category(category_node* category){
     //printf("amount of type: %d\n", category->amount_of_type);
     print_type(category->type_head);
 }
+
 void print_type(type_node* type_head){
     type_node* type_curr = type_head;
     printf("Cac truong: ");
@@ -247,10 +249,11 @@ int add_category_to_file(category_node* new_category_node){
     }
     type_head = new_category_node->type_head;
     type_curr = type_head;
-    fprintf(file,"\n%s",new_category_node->category_id);
+//if(new_category_node->)
+    fprintf(file,"%s",new_category_node->category_id);
     fprintf(file,"\n%s", new_category_node->category_name);
     fprintf(file, "\n%s", type_curr->type_name);
-    while(type_curr = type_curr->next){
+    while((type_curr = type_curr->next)){
         fprintf(file,";%s",type_curr->type_name);
     }
     fclose(file);
@@ -272,6 +275,7 @@ int delete_category_in_db(category_node* category_head, char* category_name){
     if (category_curr == NULL){
         return -1;
     }
+    /* Xoa word trong db */
     category_prev->next = category_curr->next;
     return 1;
 }
@@ -313,5 +317,38 @@ int write_category_to_file(category_node* category_head){
     }
     error = rename("data/tmp_category", category_file_path);
     return 1;
+}
 
+int is_category_id_exist(category_node* category_head, char* category_id){
+    category_node* category_curr;
+    category_curr = category_head->next;
+    if (category_curr == NULL)
+        return 0;
+    while(category_curr){
+        if (strcmp(category_curr->category_id, category_id) == 0)
+            return 1;
+        category_curr = category_curr->next;
+    }
+    return 0;
+}
+
+int decrease_amout_of_word(category_node* category_head, char* category_id, int num){
+    category_node* category_curr;
+    category_curr = category_head->next;
+    if(category_curr == NULL)
+        return -1;
+    while(category_curr){
+        if (strcmp(category_curr->category_id, category_id) == 0){
+            category_curr->amount_of_word -= num;
+            break;
+        }
+        category_curr = category_curr->next;
+    }
+    return 1;
+}
+
+int edit_category_in_db(category_node* old_category, category_node* new_category){
+    old_category->category_name = new_category->category_name;
+    old_category->type_head = new_category->type_head;
+    return 1;
 }
